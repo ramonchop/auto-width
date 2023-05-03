@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'auto-width';
+  public text: string = "123";
+  public width: string | undefined;
+
+  constructor(){
+    this.resizeInput();
+  }
+
+  resizeInput() {
+    this.width = this.text!.length + "ch"
+  }
 }
